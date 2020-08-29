@@ -111,10 +111,14 @@ while ... {
 protocol Reader {
 	func read() -> Character?
 }
-
 class PrinterReader: Reader {
 	func read() -> Character? {
 	...
+	}
+}
+func copy(reader: Reader = PrinterReader() {
+	while reader.read() {
+		...
 	}
 }
 ```
