@@ -77,4 +77,24 @@ var char = paperTapeReaderFlag ?
 + `종이테이프 천공기`에도 출력할 수 있게 하라.
 ```
 
+version-2 에서 해결한 방법으로 새로운 요구사항을 대처할 수 있을 것으로 보인다. 
+
+`종이테이프 천공기` 출력 여부를 판단하기 위한 `전역 변수` 를 선언하고, 이를 사용해 기존의 `프린터` 로 출력할 것인지,  `종이테이프 천공기` 로 출력할 것인지 결정할 수 있다. 
+
+```swift
+// 종이테이프 천공기로 출력하려면 `true`
+// 그렇지 않으면 `false`
+var punchedTapeWriterFlag = false
+
+// Copy
+while ... {
+	punchedTapeWriterFlag ? 
+	writeToPTwriter(char) : writeToPrinter(char)
+}
+```
+
+어렵지 않게 전역 변수와 ternary 연산자를 이용해 수정된 요구사항을 모두 반영했다. _version-3
+
+---
+
 
